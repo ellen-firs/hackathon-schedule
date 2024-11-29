@@ -164,8 +164,9 @@ if st.sidebar.button("Показать расписание"):
 
     
     schedule = get_data(query, params)
-    schedule.reset_index(drop=True, inplace=True)
     if schedule.empty:
         st.warning("По вашим фильтрам расписание не найдено.")
     else:
         st.dataframe(schedule)
+        st.dataframe(df.style.hide(axis="index"))
+        st.markdown(df.style.hide(axis="index").to_html(), unsafe_allow_html=True)
