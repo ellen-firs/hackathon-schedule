@@ -167,5 +167,4 @@ if st.sidebar.button("Показать расписание"):
     if schedule.empty:
         st.warning("По вашим фильтрам расписание не найдено.")
     else:
-        st.dataframe(schedule)
-        st.dataframe(df, hide_index=True)
+        st.dataframe(schedule, hide_index=True)
