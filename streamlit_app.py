@@ -55,6 +55,7 @@ def get_data(query, params):
             cursor.execute(query, params)
             columns = [description[0] for description in cursor.description]
             rows = cursor.fetchall()
+            pd.DataFrame.reset_index(drop=True, inplace=True)
         return pd.DataFrame(rows, columns=columns)
     except sqlite3.Error as e:
         st.error(f"Ошибка базы данных: {e}")
